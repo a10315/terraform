@@ -1,4 +1,4 @@
-= terraform環境構築
+= terraformでAWSを使ってkubernetes環境を自動化
 :toc:
 :sectnums:
 :toclevels: 3
@@ -15,16 +15,21 @@ https://docs.uipath.com/installation-and-upgrade/lang-ja/docs/installing-terrafo
 
 == terraform初期設定
 
-image::./images/1.png[1]
+=== GitHubからk8sファイルをダウンロード
 
-terraformファイルが置いたディレクトリに移動
+=== k8sファイルが置いているディレクトリに移動
+
 
 下記のコマンドを使って初期化する
 ----
 terraform init
 ----
 
-image::./images/2.png[2]
+image::./images/3.png[3]
+
+
+
+
 
 
 
