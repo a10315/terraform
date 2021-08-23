@@ -49,7 +49,7 @@ image::./images/5.png[5]
 
 image::./images/6.png[6]
 
-次に、masterノードに接続して、環境が自動化されていることを確認
+次に、masterノードに接続して、環境が自動化されていることを確認(3分ほどかかる)
 
 image::./images/7.png[7]
 image::./images/8.png[8]
@@ -63,7 +63,16 @@ terraform destroy -auto-approve
 
 == カスタマイズ
 
-現在の構成はmasterノード1つとworker2つですが、必要に応じてshellファイルとinstance.tfファイルを変更すれば柔軟に対応できる。
+現在の構成はmasterノード1つとworker2つですが、必要に応じてshellファイルとinstance.tfファイルの内容を修正すれば柔軟に対応できる。
+
+
+例えば、masterノード1つとworker4つ場合は、instance.tfファイルのmasterインスタントを1つ定義し、workerインスタントを4つ定義して実行します
+
+image::./images/9.png[9]
+
+
+
+
 
 
 
