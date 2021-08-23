@@ -61,7 +61,9 @@ image::./images/8.png[8]
 terraform destroy -auto-approve
 ----
 
+== カスタマイズ
 
+現在の構成はmasterノード1つとworker2つですが、必要に応じてshellファイルとinstance.tfファイルを変更すれば柔軟に対応できる。
 
 
 
