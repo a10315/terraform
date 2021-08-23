@@ -27,6 +27,39 @@ terraform init
 
 image::./images/3.png[3]
 
+== 動作確認
+
+コマンドを使って作成するものを確認
+----
+terraform plan 
+----
+
+image::./images/4.png[4]
+
+問題がなければ、コマンドを使って作成する
+
+----
+terraform apply -auto-approve
+----
+
+image::./images/5.png[5]
+
+
+実行が終わったらAWS マネジメントコンソールにログインし、インスタントが作成されていることが確認できる
+
+image::./images/6.png[6]
+
+次に、masterノードに接続して、環境が自動化されていることを確認
+
+image::./images/7.png[7]
+image::./images/8.png[8]
+
+== 環境削除
+
+コマンドを使って作成したものを削除
+----
+terraform destroy -auto-approve
+----
 
 
 
