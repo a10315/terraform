@@ -40,7 +40,7 @@ sudo systemctl enable kubelet && sudo systemctl start kubelet
 
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --kubernetes-version=1.20.1 2>&1 | tee k8s-cluster-install.log
 
-export KUBECONFIG=/home/ec2-user/.kube/config #環境変数にkubeconfigファイルのディレクトリを格納
+export KUBECONFIG=/home/ec2-user/.kube/config   #環境変数にkubeconfigファイルのディレクトリを格納
 mkdir -p /home/ec2-user/.kube
 sudo cp -i /etc/kubernetes/admin.conf $KUBECONFIG
 sudo chown ec2-user:ec2-user $KUBECONFIG
@@ -50,6 +50,7 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip
 sudo ./aws/install
 
+#パラメーターストアにworkerノードのjoinコマンドを追加
 export MASTER_TOKEN_1=$(kubeadm token create --print-join-command)
 aws ssm put-parameter --region ap-northeast-1 --name "MASTER_TOKEN_1" --value "$MASTER_TOKEN_1" --type String --overwrite
 

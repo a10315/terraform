@@ -28,7 +28,7 @@ data "aws_ami" "recent_amazon_linux2" {
 resource "aws_instance" "k8sMaster1" {
   ami                         = data.aws_ami.recent_amazon_linux2.image_id
   instance_type               = "t2.medium"
-  subnet_id                   = "subnet-31718a1a"
+ 
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
@@ -50,10 +50,10 @@ resource "aws_instance" "k8sMaster1" {
 resource "aws_instance" "k8s-worker1-1" {
   ami                         = data.aws_ami.recent_amazon_linux2.image_id
   instance_type               = "t2.medium"
-  subnet_id                   = "subnet-31718a1a"
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
+    #aws上の自分のkey_nameを入れる
   key_name                    = "k8s"
   root_block_device {
     delete_on_termination = true
@@ -71,10 +71,10 @@ resource "aws_instance" "k8s-worker1-1" {
 resource "aws_instance" "k8s-worker1-2" {
   ami                         = data.aws_ami.recent_amazon_linux2.image_id
   instance_type               = "t2.medium"
-  subnet_id                   = "subnet-31718a1a"
   associate_public_ip_address = true
   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
+    #aws上の自分のkey_nameを入れる
   key_name                    = "k8s"
   root_block_device {
     delete_on_termination = true
@@ -93,11 +93,9 @@ resource "aws_instance" "k8s-worker1-2" {
 # resource "aws_instance" "k8sMaster2" {
 #   ami                         = data.aws_ami.recent_amazon_linux2.image_id
 #   instance_type               = "t2.medium"
-#   subnet_id                   = "subnet-31718a1a"
 #   associate_public_ip_address = true
 #   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
 #   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
-#   #aws上の自分のkey_nameを入れる
 #   key_name                    = "k8s"
 #   root_block_device {
 #     delete_on_termination = true
@@ -115,7 +113,6 @@ resource "aws_instance" "k8s-worker1-2" {
 # resource "aws_instance" "k8s-worker2-1" {
 #   ami                         = data.aws_ami.recent_amazon_linux2.image_id
 #   instance_type               = "t2.medium"
-#   subnet_id                   = "subnet-31718a1a"
 #   associate_public_ip_address = true
 #   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
 #   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
@@ -136,7 +133,6 @@ resource "aws_instance" "k8s-worker1-2" {
 # resource "aws_instance" "k8s-worker2-2" {
 #   ami                         = data.aws_ami.recent_amazon_linux2.image_id
 #   instance_type               = "t2.medium"
-#   subnet_id                   = "subnet-31718a1a"
 #   associate_public_ip_address = true
 #   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
 #   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
@@ -158,11 +154,9 @@ resource "aws_instance" "k8s-worker1-2" {
 # resource "aws_instance" "k8sMaster3" {
 #   ami                         = data.aws_ami.recent_amazon_linux2.image_id
 #   instance_type               = "t2.medium"
-#   subnet_id                   = "subnet-31718a1a"
 #   associate_public_ip_address = true
 #   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
 #   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
-#   #aws上の自分のkey_nameを入れる
 #   key_name                    = "k8s"
 #   root_block_device {
 #     delete_on_termination = true
@@ -180,7 +174,6 @@ resource "aws_instance" "k8s-worker1-2" {
 # resource "aws_instance" "k8s-worker3-1" {
 #   ami                         = data.aws_ami.recent_amazon_linux2.image_id
 #   instance_type               = "t2.medium"
-#   subnet_id                   = "subnet-31718a1a"
 #   associate_public_ip_address = true
 #   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
 #   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
@@ -201,7 +194,6 @@ resource "aws_instance" "k8s-worker1-2" {
 # resource "aws_instance" "k8s-worker3-2" {
 #   ami                         = data.aws_ami.recent_amazon_linux2.image_id
 #   instance_type               = "t2.medium"
-#   subnet_id                   = "subnet-31718a1a"
 #   associate_public_ip_address = true
 #   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
 #   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
@@ -223,11 +215,9 @@ resource "aws_instance" "k8s-worker1-2" {
 # resource "aws_instance" "k8sMaster4" {
 #   ami                         = data.aws_ami.recent_amazon_linux2.image_id
 #   instance_type               = "t2.medium"
-#   subnet_id                   = "subnet-31718a1a"
 #   associate_public_ip_address = true
 #   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
 #   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
-#   #aws上の自分のkey_nameを入れる
 #   key_name                    = "k8s"
 #   root_block_device {
 #     delete_on_termination = true
@@ -245,7 +235,6 @@ resource "aws_instance" "k8s-worker1-2" {
 # resource "aws_instance" "k8s-worker4-1" {
 #   ami                         = data.aws_ami.recent_amazon_linux2.image_id
 #   instance_type               = "t2.medium"
-#   subnet_id                   = "subnet-31718a1a"
 #   associate_public_ip_address = true
 #   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
 #   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
@@ -266,7 +255,6 @@ resource "aws_instance" "k8s-worker1-2" {
 # resource "aws_instance" "k8s-worker4-2" {
 #   ami                         = data.aws_ami.recent_amazon_linux2.image_id
 #   instance_type               = "t2.medium"
-#   subnet_id                   = "subnet-31718a1a"
 #   associate_public_ip_address = true
 #   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
 #   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
@@ -288,11 +276,9 @@ resource "aws_instance" "k8s-worker1-2" {
 # resource "aws_instance" "k8sMaster5" {
 #   ami                         = data.aws_ami.recent_amazon_linux2.image_id
 #   instance_type               = "t2.medium"
-#   subnet_id                   = "subnet-31718a1a"
 #   associate_public_ip_address = true
 #   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
 #   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
-#   #aws上の自分のkey_nameを入れる
 #   key_name                    = "k8s"
 #   root_block_device {
 #     delete_on_termination = true
@@ -310,7 +296,6 @@ resource "aws_instance" "k8s-worker1-2" {
 # resource "aws_instance" "k8s-worker5-1" {
 #   ami                         = data.aws_ami.recent_amazon_linux2.image_id
 #   instance_type               = "t2.medium"
-#   subnet_id                   = "subnet-31718a1a"
 #   associate_public_ip_address = true
 #   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
 #   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name
@@ -331,7 +316,6 @@ resource "aws_instance" "k8s-worker1-2" {
 # resource "aws_instance" "k8s-worker5-2" {
 #   ami                         = data.aws_ami.recent_amazon_linux2.image_id
 #   instance_type               = "t2.medium"
-#   subnet_id                   = "subnet-31718a1a"
 #   associate_public_ip_address = true
 #   vpc_security_group_ids      = [aws_security_group.k8s_sg.id]
 #   iam_instance_profile        = aws_iam_instance_profile.app_ec2_profile.name

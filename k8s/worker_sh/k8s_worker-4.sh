@@ -44,6 +44,8 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip
 sudo ./aws/install
 
+
+# パラメーターストアからjoinコマンドを取得して、実行する
 MASTER_TOKEN_4=$(aws ssm get-parameters --region ap-northeast-1 --names MASTER_TOKEN_4 --query "Parameters[*].{Value: Value}"  --output text)
 eval ${MASTER_TOKEN_4}
 
