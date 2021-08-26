@@ -70,6 +70,8 @@ terraform destroy -auto-approve
 
 image::./images/9.png[9]
 
+shellの仕組みはworker用のjoinコマンドをmasterノートで発行し、変数にコマンドを格納して、パラメーターストアにアップする。そして、workerノートでパラメーターストアの変数を取得して、実行する仕組みになっている。
+
 
 
 
